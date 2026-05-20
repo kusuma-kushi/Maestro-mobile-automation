@@ -1,0 +1,24 @@
+name: Maestro First CI Run
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  maestro-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Maestro
+        run: |
+          curl -Ls https://get.maestro.mobile.dev | bash
+          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Verify Maestro Installation
+        run: maestro --version
+
+      - name: List Maestro Flows
+        run: ls flows
