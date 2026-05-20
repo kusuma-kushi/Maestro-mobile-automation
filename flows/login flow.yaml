@@ -1,0 +1,6 @@
+appId: com.android.chrome
+---
+- launchApp:
+    clearState: true
+- clickOn:
+    id: "loginGoogleLayout"
